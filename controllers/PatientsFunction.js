@@ -13,6 +13,17 @@ const getPatients = async (req, res) => {
 
 };
 
+const getPatient= async (req,res)=>{
+    try {
+        const patients = await patientsDetails.findById(req.params.id);
+
+        if(patients){
+            res.json(patients)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 //post method
 const createPatients =async(req,res)=>{
     try {
@@ -22,7 +33,9 @@ const createPatients =async(req,res)=>{
             age: req.body.age,
             gender:req.body.gender,
             mobile: req.body.mobile,
-            doctorName:req.body.doctorName
+            doctorName:req.body.doctorName,
+            amount:req.body.amount,
+            status:req.body.status,
         })
         const createData=await patients.save();
 
@@ -57,4 +70,4 @@ const deletePatients =async(req,res)=>{
         console.log(error)
     }
 }
-module.exports={getPatients,createPatients,updatePatients,deletePatients}
+module.exports={getPatients,createPatients,updatePatients,deletePatients,getPatient}

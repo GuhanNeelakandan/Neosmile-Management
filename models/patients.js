@@ -8,6 +8,8 @@ const patientSchema =mongoose.Schema({
     gender:{type:String},
     mobile:{type:Number},
     doctorName:{type:String},
+    amount:{type:Number},
+    status:{type:String}
 
 })
 
