@@ -12,7 +12,7 @@ const getPatients = async (req, res) => {
     }
 
 };
-
+//get by id
 const getPatient= async (req,res)=>{
     try {
         const patients = await patientsDetails.findById(req.params.id);
@@ -47,7 +47,7 @@ const createPatients =async(req,res)=>{
         console.log(error)
     }
 }
-
+//put by id
 const updatePatients =async(req,res)=>{
     try {
         const patients = await patientsDetails.findByIdAndUpdate(req.params.id,req.body)
@@ -59,7 +59,7 @@ const updatePatients =async(req,res)=>{
         console.log(error)
     }
 }
-
+//delete by id
 const deletePatients =async(req,res)=>{
     try {
         const patients =await patientsDetails.findByIdAndDelete(req.params.id)
