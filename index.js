@@ -2,7 +2,7 @@ const express = require("express");
 const cors =require("cors");
 const mongoose=require("mongoose");
 const router = require("./routes/routes");
-
+const AuthRoute =require('./routes/auth')
 const PORT = process.env.PORT || 8080
 
 const app=express();
@@ -16,7 +16,7 @@ app.use(cors())
 
 app.use('/',router)
 
-
+app.use('/',AuthRoute)
 
 
 const URI="mongodb+srv://Guhan:guhan@cluster0.gubnl.mongodb.net/crud?retryWrites=true&w=majority"
