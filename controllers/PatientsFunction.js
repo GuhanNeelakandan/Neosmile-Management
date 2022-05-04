@@ -29,6 +29,7 @@ const createPatients =async(req,res)=>{
     try {
         const patients =new patientsDetails({
             serialNo:req.body.serialNo,
+            date:req.body.date,
             name: req.body.name,
             age: req.body.age,
             gender:req.body.gender,
