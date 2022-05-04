@@ -3,7 +3,7 @@ const mongoose =require("mongoose")
 
 const patientSchema =mongoose.Schema({
     serialNo:{type:Number},
-    date:{type:Date},
+    date:{type:String},
     name:{type:String},
     age:{type:Number},
     gender:{type:String},
