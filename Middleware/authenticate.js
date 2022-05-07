@@ -3,9 +3,8 @@ const jwt =require("jsonwebtoken")
 const authenticate =require=(req,res,next)=>{
     try {
         const token =req.headers.authorization.split('')[1]
-        const decode =jwt.verify(token,'verySecretValues')
-
-        req.user =decode
+        const decode =jwt.verify(token,'verySecret')
+        req.user = decode
         next()
     } catch (error) {
         res.json({
@@ -13,5 +12,4 @@ const authenticate =require=(req,res,next)=>{
         })
     }
 }
-
 module.exports=authenticate;
