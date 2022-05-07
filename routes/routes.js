@@ -3,10 +3,10 @@ const { getPatients, createPatients, updatePatients, deletePatients,getPatient }
 const router = express.Router();
 const authenticate =require('../Middleware/authenticate')
 
-router.route('/getPatients').get(getPatients);
-router.route('/getPatient/:id').get(getPatient);
-router.route('/createPatients').post(createPatients);
-router.route('/updatePatients/:id').put(updatePatients);
-router.route('/deletePatients/:id').delete(deletePatients);
+router.route('/getPatients').get(authenticate,getPatients);
+router.route('/getPatient/:id').get(authenticate,getPatient);
+router.route('/createPatients').post(authenticate,createPatients);
+router.route('/updatePatients/:id').put(authenticate,updatePatients);
+router.route('/deletePatients/:id').delete(authenticate,deletePatients);
 
 module.exports=router;

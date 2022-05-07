@@ -39,7 +39,7 @@ const login = (req,res,next)=>{
                         error:err
                     })
                 }if(result){
-                    let token =jwt.sign({name:username},'verySecret',{expiresIn: 120})
+                    let token =jwt.sign({name:username},'verySecret',{expiresIn: '1hr'})
                     res.json({
                         message:"login sucessfull",
                         token
