@@ -46,7 +46,7 @@ const login = (req,res,next)=>{
                     })
                 }else{
                     res.json({
-                        message:"does not match"
+                        message:"Check user name and password"
                     })
                 }
             })

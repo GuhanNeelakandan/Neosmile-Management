@@ -1,4 +1,5 @@
 const patientsDetails = require("../models/patients");
+const User = require("../models/User");
 //get method
 const getPatients = async (req, res) => {
     try {
@@ -71,4 +72,29 @@ const deletePatients =async(req,res)=>{
         console.log(error)
     }
 }
-module.exports={getPatients,createPatients,updatePatients,deletePatients,getPatient}
+
+const getUser =async(req,res)=>{
+    try {
+        const user =await User.find({});
+        if(user){
+            res.json(user)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+const deleteUser =async(req,res)=>{
+    try {
+        const user =await User.findByIdAndDelete(req.params.id)
+
+        if(user){
+            res.send("deleted sucessfully")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+module.exports={getPatients,createPatients,updatePatients,deletePatients,getPatient,getUser,deleteUser}
