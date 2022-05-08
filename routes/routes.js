@@ -8,7 +8,7 @@ router.route('/getPatient/:id').get(authenticate,getPatient);
 router.route('/createPatients').post(authenticate,createPatients);
 router.route('/updatePatients/:id').put(authenticate,updatePatients);
 router.route('/deletePatients/:id').delete(authenticate,deletePatients);
-router.route('/getUser').get(getUser)
-router.route('/deleteUser/:id').delete(deleteUser)
+router.route('/getUser').get(authenticate,getUser)
+router.route('/deleteUser/:id').delete(authenticate,deleteUser)
 
 module.exports=router;
