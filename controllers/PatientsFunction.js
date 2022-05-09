@@ -1,3 +1,4 @@
+const Appointment = require("../models/Appoinment");
 const patientsDetails = require("../models/patients");
 const User = require("../models/User");
 //get method
@@ -96,5 +97,45 @@ const deleteUser =async(req,res)=>{
     }
 }
 
+const appointment =async(req,res)=>{
+    try {
+        const data =await Appointment.find({});
+        if(data){
+            res.json(data)
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-module.exports={getPatients,createPatients,updatePatients,deletePatients,getPatient,getUser,deleteUser}
+const bookAppointment =async (req,res)=>{
+    try {
+        const data =new Appointment({
+            name:req.body.name,
+            email:req.body.email,
+            date:req.body.date,
+            mobile:req.body.mobile,
+            description:req.body.description
+        })
+        const create =await data.save();
+        if(create){
+            res.send(create)
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const cancelAppointment =async(req,res)=>{
+    try {
+        const data =await Appointment.findByIdAndDelete(req.params.id)
+
+        if(data){
+            res.send("deleted sucessfully")
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports={getPatients,createPatients,updatePatients,deletePatients,getPatient,getUser,deleteUser,appointment,bookAppointment,cancelAppointment}
