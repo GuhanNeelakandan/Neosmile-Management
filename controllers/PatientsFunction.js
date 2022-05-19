@@ -4,7 +4,7 @@ const User = require("../models/User");
 //get method
 const getPatients = async (req, res) => {
     try {
-        const patients = await patientsDetails.find({});
+        const patients = await patientsDetails.find({createdby:req.userId});
 
         if (patients) {
             res.json(patients)
@@ -39,6 +39,7 @@ const createPatients =async(req,res)=>{
             doctorName:req.body.doctorName,
             amount:req.body.amount,
             status:req.body.status,
+            createdby:req.userId,
         })
         const createData=await patients.save();
 

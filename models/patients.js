@@ -10,7 +10,8 @@ const patientSchema =mongoose.Schema({
     mobile:{type:Number},
     doctorName:{type:String},
     amount:{type:Number},
-    status:{type:String}
+    status:{type:String},
+    createdby:{type:mongoose.Schema.Types.ObjectId}
 
 })
 
