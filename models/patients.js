@@ -11,6 +11,7 @@ const patientSchema =mongoose.Schema({
     doctorName:{type:String},
     amount:{type:Number},
     status:{type:String},
+    description:{type:String},
     createdby:{type:mongoose.Schema.Types.ObjectId}
 
 })

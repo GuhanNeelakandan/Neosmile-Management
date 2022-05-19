@@ -39,6 +39,7 @@ const createPatients =async(req,res)=>{
             doctorName:req.body.doctorName,
             amount:req.body.amount,
             status:req.body.status,
+            description:req.body.description,
             createdby:req.userId,
         })
         const createData=await patients.save();
